@@ -1,0 +1,63 @@
+// Configuration
+
+$font-size: 16;       // Your base font-size in pixels
+$column: 48;          // The column-width of your grid in pixels
+$gutter: 24;          // The gutter-width of your grid in pixels
+
+// Column Variables
+
+ $col1: #{( 1 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col2: #{( 2 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col3: #{( 3 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col4: #{( 4 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col5: #{( 5 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col6: #{( 6 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col7: #{( 7 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col8: #{( 8 * ($column + $gutter) - $gutter) / $font-size}em;
+ $col9: #{( 9 * ($column + $gutter) - $gutter) / $font-size}em;
+$col10: #{(10 * ($column + $gutter) - $gutter) / $font-size}em;
+$col11: #{(11 * ($column + $gutter) - $gutter) / $font-size}em;
+$col12: #{(12 * ($column + $gutter) - $gutter) / $font-size}em;
+$col13: #{(13 * ($column + $gutter) - $gutter) / $font-size}em;
+$col14: #{(14 * ($column + $gutter) - $gutter) / $font-size}em;
+$col15: #{(15 * ($column + $gutter) - $gutter) / $font-size}em;
+$col16: #{(16 * ($column + $gutter) - $gutter) / $font-size}em;
+
+// Functions 
+
+@mixin c_width($cols:1) {
+  width: #{($cols * ($column + $gutter) - $gutter) / $font-size}em;
+}
+
+// Imports
+
+@import "reset";
+@import "zooms";
+@import "screens/common";
+@import "screens/mobile";
+@import "screens/tablet";
+@import "screens/desktop";
+@import "screens/ie";
+
+// Grid Styling
+
+.grid {
+  height: $col4;
+  position: relative;
+  overflow: hidden;
+}
+
+.col {
+    height: 100%;
+    @include c_width(1);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: #{(12 / $font-size)}em; 
+}
+
+.col19 { margin-left: -#{ (72 - 12) / $font-size }em; } 
+@for $idx from 2 through 18 {
+  .col#{$idx} { margin-left: #{ ( ($idx - 1) * 72 + 12 ) / $font-size }em; }
+  .col#{( $idx + 18 )} { margin-left: -#{ ( $idx * 72 - 12 ) / $font-size }em; }
+}

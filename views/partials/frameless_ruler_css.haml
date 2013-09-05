@@ -1,0 +1,34 @@
+:css
+  .col { background: black; }
+  h1.frameless_ruler {
+    display: none;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  @media screen and (min-width: 15em) {
+    h1#mobile {
+      display: block;
+      position: relative;}
+    h1#tablet {
+      display:none;}
+    h1#desktop {
+      display:none;}
+  }
+  @media screen and (min-width: 37.5em) {
+    h1#tablet {
+      display: block;
+      position: relative;}
+    h1#mobile {
+      display:none;}
+    h1#desktop {
+      display:none;}
+  }
+  @media screen and (min-width: 57em) {
+    h1#desktop {
+      display: block;
+      position: relative;}
+    h1#mobile {
+      display:none;}
+    h1#tablet {
+      display:none;}
+  }
