@@ -1,8 +1,8 @@
 // Configuration
 
 $font-size: 16;       // Your base font-size in pixels
-$column: 48;          // The column-width of your grid in pixels
-$gutter: 24;          // The gutter-width of your grid in pixels
+$column: 32;          // The column-width of your grid in pixels
+$gutter: 16;          // The gutter-width of your grid in pixels
 
 // Column Variables
 
@@ -53,11 +53,11 @@ $col16: #{(16 * ($column + $gutter) - $gutter) / $font-size}em;
     position: absolute;
     left: 50%;
     top: 0;
-    margin-left: #{(12 / $font-size)}em; 
 }
 
-.col19 { margin-left: -#{ (72 - 12) / $font-size }em; } 
-@for $idx from 2 through 18 {
-  .col#{$idx} { margin-left: #{ ( ($idx - 1) * 72 + 12 ) / $font-size }em; }
-  .col#{( $idx + 18 )} { margin-left: -#{ ( $idx * 72 - 12 ) / $font-size }em; }
+// Grid Positioning
+
+@for $idx from 0 through 17 {
+  .col#{($idx+1)} { margin-left: #{ (($idx * $column) + ($idx * $gutter) + ($gutter / 2)) / $font-size }em; }
+  .col#{($idx+19)} { margin-left: #{((-1*($column + ($gutter/2))) - ((($idx * $column) + ($idx * $gutter)))) / $font-size }em; }
 }
